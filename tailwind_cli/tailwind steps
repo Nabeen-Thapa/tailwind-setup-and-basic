@@ -1,0 +1,30 @@
+on the basic of tailwind cli
+
+first create two folders in root folders
+- dist
+- src
+
+then crete a file in dist (like index.html  it is for the last output i.e. for the production)
+
+ then open terminal for that root folder adn run below command:
+ - npx tailwindcss init
+this command creates a tailwind.config.js which we need to modify after to use css
+
+and then create a file in src folder (e.g input.css) and write below lines in input.css file (src/input.css):
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+(Note : in @tailwind will show warining lines, you can remove these lines from setting, for this open vs code setting (or ctrl + ,) and then serch unknow then choose ignore in css>lint: unknown at rules)
+
+after then open tailwind.config.js and give your file location in content where you what to user css 
+e.g for index.html
+content:["./dist/index.html"]
+or for all html  and js pages of dist folder
+content: ["./dist/*.{html,js}"]
+
+then run this command:
+npx tailwindcss -i ./src/input.css -o ./src/output.css
+(Note : -i means input file, where actual tailwind is e.g input.css and -o means output file name where we wnat to generate css e. style.css)
+
+
+then link css file (style.css) with file where you want to user css
